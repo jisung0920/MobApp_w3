@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView t1,t2,t3;
+    TextView t1,t2;
     EditText e1,e2,e3;
 
     ImageView i1;
