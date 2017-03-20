@@ -1,5 +1,6 @@
 package com.example.jisung.myapplication;
 
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +20,7 @@ import java.sql.Time;
 
 public class ReserveRActivity extends AppCompatActivity {
 
-    TextView t1,t2,t3,t4,t5;
+    TextView t0,t1,t2,t3,t4,t5;
     Button b1,b2;
     EditText e1,e2,e3;
     DatePicker d1_lay;
@@ -41,6 +42,7 @@ public class ReserveRActivity extends AppCompatActivity {
                     d1_lay.setVisibility(View.VISIBLE);
                     c1.start();
                     c1.setVisibility(View.VISIBLE);
+                    t0.setVisibility(View.VISIBLE);
                     b1.setEnabled(false);
                     b2.setEnabled(true);
                 }
@@ -49,9 +51,11 @@ public class ReserveRActivity extends AppCompatActivity {
                     g1_lay.setVisibility(View.INVISIBLE);
                     g2_lay.setVisibility(View.INVISIBLE);
                     c1.stop();
+                    c1.setBase(SystemClock.elapsedRealtime());
                     c1.setVisibility(View.INVISIBLE);
+                    t0.setVisibility(View.INVISIBLE);
                     b1.setEnabled(false);
-                    b2.setEnabled(true);
+                    b2.setEnabled(false);
                 }
             }
         });
@@ -105,7 +109,10 @@ public class ReserveRActivity extends AppCompatActivity {
                 v.setEnabled(false);
         }
     }
+
+
     void init(){
+        t0 =(TextView)findViewById(R.id.t0);
         t1 =(TextView)findViewById(R.id.t1);
         t2 =(TextView)findViewById(R.id.t2);
         t3 =(TextView)findViewById(R.id.t3);
