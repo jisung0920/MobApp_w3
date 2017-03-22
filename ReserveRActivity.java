@@ -34,6 +34,7 @@ public class ReserveRActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve_r);
+        setTitle("레스토랑 예약");
         init();
         s1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

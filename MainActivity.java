@@ -14,34 +14,44 @@ public class MainActivity extends AppCompatActivity {
 
     TextView t1,t2;
     EditText e1,e2,e3;
-
     ImageView i1;
+    int a=0,b=0,c=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("학점계산기");
         init();
 
     }
     public void ButtonClick(View v){
         Log.d("button","click");
         Log.d("ID",v.getId()+"");
+        String zero = "0";
         if(v.getId()==R.id.b1){
 
-            int a,b,c;
+                if(e1.getText().equals("")) {
 
-            if(e1.getText().equals("")) {
-                e1.setText("0");
-            }
-            else if(e2.getText().equals("")) {
-                e2.setText("0");
-            }
-            else if(e3.getText().equals("")) {
-                e3.setText("0");
-            }
-                a = Integer.parseInt(e1.getText().toString());
-                b = Integer.parseInt(e2.getText().toString());
-                c = Integer.parseInt(e3.getText().toString());
+                    //e1.setText(zero,TextView.BufferType.EDITABLE);
+                    b = Integer.parseInt(e2.getText().toString());
+                    c = Integer.parseInt(e3.getText().toString());
+                }
+                else if(e2.getText().equals("")) {
+                    //e2.setText(zero,TextView.BufferType.EDITABLE);
+                    a = Integer.parseInt(e1.getText().toString());
+                    c = Integer.parseInt(e3.getText().toString());
+                }
+                else if(e3.getText().equals("")) {
+                   // e3.setText(zero,TextView.BufferType.EDITABLE);
+                    a = Integer.parseInt(e1.getText().toString());
+                    b = Integer.parseInt(e2.getText().toString());
+                }
+
+                else{
+                    a = Integer.parseInt(e1.getText().toString());
+                    b = Integer.parseInt(e2.getText().toString());
+                    c = Integer.parseInt(e3.getText().toString());
+                }
             int result = a + b + c;
             int aver = result/3;
             t1.setText(result+"점");
